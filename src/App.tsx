@@ -3,8 +3,8 @@ import { ChatWidget } from './ChatWidget';
 function App() {
   return (
     <div>
-      <h1>Site do Cliente (Simulação)</h1>
-      <p>O chat deve aparecer no canto inferior direito.</p>
+      <h1>Client site (simulation)</h1>
+      <p>The chat should appear in the bottom right corner.</p>
       
       <ChatWidget />
     </div>
