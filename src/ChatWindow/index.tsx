@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, PaperPlaneTilt, SpinnerGap, Warning } from 'phosphor-react';
+import { X, PaperPlaneRight, SpinnerGap, Warning } from 'phosphor-react';
 import styles from './styles.module.css';
 
 interface Message {
@@ -67,7 +67,6 @@ export const ChatWindow = ({ onClose, maintenanceMode = false }: ChatWindowProps
   return (
     <div className={styles.window}>
       
-      {/* HEADER */}
       <div className={styles.header}>
         <div className={styles.headerTitle}>
           <h3>Eloquent AI</h3>
@@ -84,7 +83,6 @@ export const ChatWindow = ({ onClose, maintenanceMode = false }: ChatWindowProps
         </button>
       </div>
 
-      {/* LISTA DE MENSAGENS */}
       <div className={styles.messageList}>
         {messages.map((msg) => (
           <div key={msg.id} className={`${styles.message} ${msg.sender === 'bot' ? styles.botMessage : styles.userMessage}`}>
@@ -103,7 +101,6 @@ export const ChatWindow = ({ onClose, maintenanceMode = false }: ChatWindowProps
         <div ref={messagesEndRef} />
       </div>
 
-      {/* BANNER DE MANUTENÇÃO */}
       {maintenanceMode && (
         <div className={styles.maintenanceBanner}>
           <Warning size={16} weight="bold" />
@@ -111,7 +108,6 @@ export const ChatWindow = ({ onClose, maintenanceMode = false }: ChatWindowProps
         </div>
       )}
 
-      {/* ÁREA DE INPUT */}
       <form 
         className={`${styles.inputArea} ${maintenanceMode ? styles.disabled : ''}`} 
         onSubmit={handleSendMessage}
@@ -129,12 +125,11 @@ export const ChatWindow = ({ onClose, maintenanceMode = false }: ChatWindowProps
           className={styles.sendButton}
           disabled={!inputValue.trim() || isLoading || maintenanceMode}
         >
-          <PaperPlaneTilt size={20} weight="fill" />
+          <PaperPlaneRight size={12} weight="fill" color='white'/>
         </button>
+        
       </form>
 
-      {/* --- PROTEÇÃO: RODAPÉ DE COPYRIGHT --- */}
-      {/* Isso garante que eles não possam usar em produção sem editar o código fonte */}
       <div style={{
         padding: '8px',
         textAlign: 'center',
